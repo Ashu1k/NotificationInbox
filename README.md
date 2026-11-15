@@ -53,6 +53,8 @@ Send these string key/value pairs in the FCM `data` object:
 }
 ```
 
+FCM notifications can be tested using a Firebase-authorized Node.js sender. The sender requires a valid device FCM token and Firebase service-account credentials
+
 This is the HTTP v1 message body shape for a data-only message. Send it from a trusted server using Firebase Admin SDK or authenticated HTTP v1 access. Never put service-account credentials in the Android app.
 
 **Why data-only?** Android/Firebase automatically displays a notification-payload message when the app is in the background, without calling `onMessageReceived()` at that moment. A data-only message lets this app save the item to SQLite and then build the system notification itself. The app handles foreground and background delivery through `MyFirebaseMessagingService`.
